@@ -15,7 +15,7 @@
   ],
   "security": [
     {
-      "bearerAuth": []
+      "clientToken": []
     }
   ],
   "paths": {
@@ -208,9 +208,10 @@
       }
     },
     "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
+      "clientToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Client-Token"
       }
     }
   }
