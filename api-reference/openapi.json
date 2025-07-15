@@ -10,7 +10,15 @@
   },
   "servers": [
     {
-      "url": "http://api.hub-message.com"
+      "url": "http://api.hub-message.com/instances/{instanceId}/token/{instanceToken}",
+      "variables": {
+        "instanceId": {
+          "default": "exemplo-instance"
+        },
+        "instanceToken": {
+          "default": "exemplo-token"
+        }
+      }
     }
   ],
   "security": [
@@ -19,29 +27,9 @@
     }
   ],
   "paths": {
-    "/instances/{instanceId}/token/{instanceToken}/send-text": {
+    "/send-text": {
       "post": {
         "description": "Envia mensagem de texto simples",
-        "parameters": [
-          {
-            "name": "instanceId",
-            "in": "path",
-            "description": "ID da instância",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "instanceToken",
-            "in": "path",
-            "description": "Token da instância",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "requestBody": {
           "description": "Dados da mensagem a ser enviada",
           "content": {
