@@ -27,6 +27,12 @@
               "api-reference/endpoint/delete",
               "api-reference/endpoint/webhook"
             ]
+          },
+          {
+            "group": "Mensagens",
+            "pages": [
+              "api-reference/message/send-text"
+            ]
           }
         ]
       }

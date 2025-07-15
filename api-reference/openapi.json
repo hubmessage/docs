@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
+      "url": "http://api.hub-message.com"
     }
   ],
   "security": [
@@ -19,6 +19,54 @@
     }
   ],
   "paths": {
+    "/instances/{instanceId}/token/{instanceToken}/send-text": {
+      "post": {
+        "description": "Envia mensagem de texto simples",
+        "parameters": [
+          {
+            "name": "instanceId",
+            "in": "path",
+            "description": "ID da instância",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "instanceToken",
+            "in": "path",
+            "description": "Token da instância",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Dados da mensagem a ser enviada",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TextMessage"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Mensagem adicionada na fila com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageQueue"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/plants": {
       "get": {
         "description": "Returns all plants from the system that the user has access to",
@@ -154,6 +202,44 @@
   },
   "components": {
     "schemas": {
+      "MessageQueue": {
+        "type": "object",
+        "properties": {
+          "zaapId": {
+            "description": "id da mensagem na fila do hub message.",
+            "type": "string"
+          },
+          "messageId": {
+            "description": "id da mensagem no whatsapp.",
+            "type": "string"
+          },
+          "id": {
+            "description": "id da mensagem no whatsapp para compatibilidade de versões anteriores.",
+            "type": "integer"
+          }
+        }
+      },
+      "TextMessage": {
+        "required": [
+          "phone",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "phone": {
+            "description": "Número de telefone a receber a mensagem",
+            "type": "string"
+          },
+          "message": {
+            "description": "Mensagem a ser enviada",
+            "type": "string"
+          },
+          "delayTyping": {
+            "description": "Nesse atributo um delay é adicionado na mensagem. Você pode decidir entre um range de 1~15 sec, significa quantos segundos ele vai ficar com o status 'Digitando...'. (Ex 'delayTyping': 5, ). O delay default caso não seja informado é de 0",
+            "type": "integer"
+          }
+        }
+      },
       "Plant": {
         "required": [
           "name"
