@@ -55,54 +55,15 @@
         }
       }
     },
-    "/plants": {
-      "get": {
-        "description": "Returns all plants from the system that the user has access to",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      },
+    "/send-image": {
       "post": {
-        "description": "Creates a new plant in the store",
+        "description": "Envia imagem como mensagem ",
         "requestBody": {
-          "description": "Plant to add to the store",
+          "description": "Dados da mensagem a ser enviada",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPlant"
+                "$ref": "#/components/schemas/ImageMessage"
               }
             }
           },
@@ -110,54 +71,11 @@
         },
         "responses": {
           "200": {
-            "description": "plant response",
+            "description": "Mensagem adicionada na fila com sucesso",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plant"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID of plant to delete",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/MessageQueue"
                 }
               }
             }
@@ -165,6 +83,7 @@
         }
       }
     }
+  
   },
   "webhooks": {
     "/plant/webhook": {
@@ -228,41 +147,26 @@
           }
         }
       },
-      "Plant": {
+      "ImageMessage": {
         "required": [
-          "name"
+          "phone",
+          "image"
         ],
         "type": "object",
         "properties": {
-          "name": {
-            "description": "The name of the plant",
+          "phone": {
+            "description": "Número de telefone a receber a image",
             "type": "string"
           },
-          "tag": {
-            "description": "Tag to specify the type",
+          "image": {
+            "description": "Url ou base a ser enviado",
             "type": "string"
+          },
+          "delayTyping": {
+            "description": "Nesse atributo um delay é adicionado na mensagem. Você pode decidir entre um range de 1~15 sec, significa quantos segundos ele vai ficar com o status 'Digitando...'. (Ex 'delayTyping': 5, ). O delay default caso não seja informado é de 0",
+            "type": "integer"
           }
         }
-      },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
-          },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        ]
       },
       "Error": {
         "required": [
