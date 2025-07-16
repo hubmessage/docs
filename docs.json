@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "maple",
   "name": "Hub Message Starter Kit",
   "colors": {
     "primary": "#16A34A",
@@ -9,9 +9,9 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "dropdowns": [
+    "tabs": [
       {
-        "dropdown": "API Reference",
+        "tab": "API Reference",
         "icon": "",
         "description": "Referencia de referencia",
         "groups": [
