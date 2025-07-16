@@ -9,9 +9,11 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "dropdowns": [
       {
-        "tab": "API Reference",
+        "dropdown": "API Reference",
+        "icon": "",
+        "description": "Referencia de referencia",
         "groups": [
           {
             "group": "Get Started",
