@@ -8,15 +8,14 @@
     "dark": "#15803D"
   },
   "favicon": "/favicon.svg",
-
   "navigation": {
     "groups": [
       {
-        "group": "API Reference",          // cabeçalho de 1º nível (fica em negrito)
+        "group": "API Reference",
         "icon": "book-open",
         "pages": [
           {
-            "group": "Get Started",        // 2º nível (recuado)
+            "group": "Get Started",
             "icon": "flag",
             "pages": [
               "api-reference/introduction",
@@ -24,7 +23,7 @@
             ]
           },
           {
-            "group": "Mensagens",          // 2º nível (recuado)
+            "group": "Mensagens",
             "icon": "message-square",
             "pages": [
               "api-reference/message/send-text",
@@ -34,7 +33,6 @@
         ]
       }
     ],
-
     "global": {
       "anchors": [
         {
@@ -50,12 +48,10 @@
       ]
     }
   },
-
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
   },
-
   "navbar": {
     "links": [
       {
@@ -69,7 +65,6 @@
       "href": "https://dashboard.mintlify.com"
     }
   },
-
   "footer": {
     "socials": {
       "x": "https://x.com/mintlify",
