@@ -16,10 +16,10 @@
         "description": "Referencia de referencia",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Getting started",
             "pages": [
               "api-reference/introduction",
-              "api-reference/get-started"
+              "api-reference/quickstart"
             ]
           },
           {
