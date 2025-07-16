@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Hub Message Starter Kit",
+  "name": "Hub Message Starter Kit -  teste",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -9,14 +9,12 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "groups": [
+    "tabs": [
       {
-        "group": "API Reference",
-        "icon": "book-open",
-        "pages": [
+        "tab": "API Reference",
+        "groups": [
           {
             "group": "Get Started",
-            "icon": "flag",
             "pages": [
               "api-reference/introduction",
               "api-reference/get-started"
@@ -24,7 +22,6 @@
           },
           {
             "group": "Mensagens",
-            "icon": "message-square",
             "pages": [
               "api-reference/message/send-text",
               "api-reference/message/send-image"
