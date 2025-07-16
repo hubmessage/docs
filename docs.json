@@ -14,14 +14,9 @@
         "tab": "API Reference",
         "groups": [
           {
-            "group": "Introduction",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
             "group": "Get Started",
             "pages": [
+              "api-reference/introduction",
               "api-reference/get-started"
             ]
           },
@@ -38,18 +33,13 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
           "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "href": "https://wa.me/5544988313400",
+          "icon": "whatsapp"
         },
         {
           "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
+          "href": "http://hub-message.com/blog",
           "icon": "newspaper"
         }
       ]
